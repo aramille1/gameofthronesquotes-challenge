@@ -1,0 +1,22 @@
+<div class="container my-4 d-flex flex-column align-items-center">
+  <h2 class="my-4"> Game of Thrones: Persons</h2>
+  <div class="form-group">
+    <!-- <label for="search-text">Search Text</label> -->
+    <input type="email" class="form-control mb-4" id="search-text" aria-describedby="search-text"
+      [(ngModel)]="searchText" placeholder="Enter text to search a person" autofocus>
+
+    <div class="d-flex justify-content-center mt-4" *ngIf="!loaded">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div *ngIf="loaded">
+      <div class="list-group" *ngFor="let person of persons | filter: searchText">
+        <a class="list-group-item list-group-item-action" [routerLink]="['/persons', person.slug]">{{ person.name }}
+          <span *ngIf="person.house">-
+            {{person.house.name}}</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>

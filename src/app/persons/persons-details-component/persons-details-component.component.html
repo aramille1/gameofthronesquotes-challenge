@@ -1,0 +1,16 @@
+<div class="d-flex container mt-4" *ngIf="!loaded">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="container my-4 d-flex flex-column align-items-baseline" *ngIf="loaded">
+  <h5 class="my-2"><u>Name:</u> {{personName}}</h5>
+  <h5 class="my-2" *ngIf="personHouseName"><u>House:</u> {{personHouseName}}</h5>
+  <h5><u>Qoutes:</u></h5>
+  <div class="list-group" *ngFor="let quote of quotes">
+    <h4>"{{quote}}"</h4>
+  </div>
+
+  <button type="button" class="btn btn-dark mt-2" (click)="replaceQuotes()">Replace quotes</button>
+
+</div>

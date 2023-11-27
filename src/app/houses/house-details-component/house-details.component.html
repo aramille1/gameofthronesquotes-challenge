@@ -1,0 +1,13 @@
+<div class="container my-4 d-flex flex-column align-items-center">
+  <h2 class="my-4">Members of {{house}}</h2>
+  <div class="d-flex justify-content-center mt-4" *ngIf="!loaded">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div *ngIf="loaded">
+    <div class="list-group" *ngFor="let member of members">
+      <h5> {{member.name}}</h5>
+    </div>
+  </div>
+</div>
